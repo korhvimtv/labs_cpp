@@ -1,9 +1,7 @@
-//
-// Created by ASUS on 08.09.24.
-//
-
 #ifndef LAB_1_FUNC_H
 #define LAB_1_FUNC_H
+
+#include "libs.h"
 
 void printMenu();
 void enterUserInfo(std::vector<User>& users);

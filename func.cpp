@@ -19,8 +19,11 @@ void printMenu(){
 }
 
 void enterUserInfo(std::vector<User>& users){
-    int id, age, group;
+    int id;
+    int age;
+    int group;
     std::string username;
+    std::vector<int> marks;
     rewind(stdin);
     std::cout << "Enter username: ";
     std::cin >> username;
@@ -30,7 +33,7 @@ void enterUserInfo(std::vector<User>& users){
     isIntNumber(age);
     std::cout << "Enter group: ";
     std::cin >> group;
-    createUser(users, id, username, age, group);
+    createUser(users, id, username, age, group, marks);
 }
 
 void updateUserInfo(std::vector<User>& users){
@@ -40,7 +43,9 @@ void updateUserInfo(std::vector<User>& users){
         return;
     }
 
-    int id, age, group;
+    int id;
+    int age;
+    int group;
     std::string username;
     std::cout << "Enter users' ID you want to update: ";
     std::cin >> id;
@@ -82,3 +87,4 @@ void deleteUserInfo(std::vector<User>& users){
 
     deleteUser(users, id);
 }
+

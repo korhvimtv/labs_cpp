@@ -29,7 +29,7 @@ int main() {
                deleteUserInfo(users);
                break;
            case 0:
-               return(0);
+               return 0;
            default:
                system("cls");
                std::cout << "Invalid value.";

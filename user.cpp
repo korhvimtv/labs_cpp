@@ -1,6 +1,6 @@
 #include "libs.h"
 
-int User::getId() {
+int User::getId() const {
     return id;
 }
 
@@ -8,15 +8,15 @@ void User::setId(int newId) {
     id = newId;
 }
 
-std::string User::getUsername() {
+std::string User::getUsername() const {
     return username;
 }
 
-void User::setUsename(std::string newUsername) {
+void User::setUsername(const std::string& newUsername) {
     username = newUsername;
 }
 
-int User::getAge() {
+int User::getAge() const {
     return age;
 }
 
@@ -24,7 +24,7 @@ void User::setAge(int newAge) {
     age = newAge;
 }
 
-int User::getGroup() {
+int User::getGroup() const {
     return group;
 }
 
@@ -32,8 +32,16 @@ void User::setGroup(int newGroup) {
     group = newGroup;
 }
 
-void createUser(std::vector<User>& users, int id, std::string username, int age, int group) {
-    User newUser(id, username, age, group);
+std::vector<int> User::getMarks() const {
+    return marks;
+}
+
+void User::setMarks(const std::vector<int>& newMarks) {
+    marks = newMarks;
+}
+
+void createUser(std::vector<User>& users, int id, const std::string& username, int age, int group, const std::vector<int>& marks) {
+    User newUser(id, username, age, group, marks);
     users.push_back(newUser);
     std::cout << "\nUser created" << std::endl;
 }
@@ -46,16 +54,16 @@ void readUsers(const std::vector<User>& users) {
         return;
     }
     std::cout << "List of users:" << std::endl;
-    for (auto user : users) {
+    for (auto& user : users) {
         std::cout << "ID: " << user.getId() << ", Name: " << user.getUsername() << ", Age: " << user.getAge()
                   << ", Group: " << user.getGroup() << std::endl;
     }
 }
 
-void updateUser(std::vector<User>& users, int id, std::string newName, int newAge, int newGroup) {
+void updateUser(std::vector<User>& users, int id, const std::string& newName, int newAge, int newGroup) {
     for (auto& user : users) {
         if (user.getId() == id) {
-            user.setUsename(newName);
+            user.setUsername(newName);
             user.setAge(newAge);
             user.setGroup(newGroup);
             std::cout << "User updated: " << newName << std::endl;
