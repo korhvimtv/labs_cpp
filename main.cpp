@@ -3,6 +3,7 @@
 int main() {
     std::vector<User> users;
     int menuChoice;
+    int id;
     User* tempUser;
    while(true) {
        system("cls");
@@ -21,19 +22,24 @@ int main() {
                break;
            case 3:
                system("cls");
-               readUsers(users);
-               updateUserInfo(users);
+               if (readUsers(users)) {
+               std::cout << "\nEnter users' ID you want update for: ";
+               isIntNumber(id);
+               updateUserInfo(users, id);
+               }
                break;
            case 4:
                system("cls");
-               readUsers(users);
-               deleteUserInfo(users);
+               if (readUsers(users)){
+                   std::cout << "Enter users' ID you want to delete: ";
+                   isIntNumber(id);
+                   deleteUser(users, id);
+               }
                break;
            case 5:
                system("cls");
-               int id;
                std::cout << "\nEnter users' ID you want update marks for: ";
-               std::cin >> id;
+               isIntNumber(id);
                tempUser = findUser(users, id);
                if(tempUser!= nullptr) {
                    enterUserMarks(tempUser);

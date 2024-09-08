@@ -4,8 +4,8 @@ project(lab_1)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(lab_1 main.cpp
-        user.cpp
-        user.h
+        user/user.cpp
+        user/user.h
         libs.h
-        func.cpp
-        func.h)
+        func/func.cpp
+        func/func.h)

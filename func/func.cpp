@@ -1,4 +1,4 @@
-#include "libs.h"
+#include "../libs.h"
 
 int isIntNumber(int& check){
     while(true){
@@ -36,19 +36,10 @@ void enterUserInfo(std::vector<User>& users){
     createUser(users, id, username, age, group, marks);
 }
 
-void updateUserInfo(std::vector<User>& users){
-    if(users.empty()){
-        std::cout << "List of users is empty!";
-        _getch();
-        return;
-    }
-
-    int id;
+void updateUserInfo(std::vector<User>& users, int id){
     int age;
     int group;
     std::string username;
-    std::cout << "Enter users' ID you want to update: ";
-    std::cin >> id;
 
     for (const auto& user : users) {
         if(id != user.getId()){
@@ -65,27 +56,6 @@ void updateUserInfo(std::vector<User>& users){
     std::cout << "Enter group: ";
     std::cin >> group;
     updateUser(users, id, username, age, group);
-}
-
-void deleteUserInfo(std::vector<User>& users){
-    if(users.empty()){
-        std::cout << "List of users is empty!";
-        _getch();
-        return;
-    }
-    int id;
-    std::cout << "Enter users' ID you want to delete: ";
-    std::cin >> id;
-
-    for (const auto& user : users) {
-        if(id != user.getId()){
-            std::cout << "User with ID " << id << " not found." << std::endl;
-            _getch();
-            return;
-        }
-    }
-
-    deleteUser(users, id);
 }
 
 User* findUser(std::vector<User>& users, int id){

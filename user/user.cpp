@@ -1,4 +1,4 @@
-#include "libs.h"
+#include "../libs.h"
 
 int User::getId() const {
     return id;
@@ -46,18 +46,20 @@ void createUser(std::vector<User>& users, int id, const std::string& username, i
     std::cout << "\nUser created" << std::endl;
 }
 
-void readUsers(const std::vector<User>& users) {
+bool readUsers(const std::vector<User>& users) {
     system("cls");
     if(users.empty()){
         std::cout << "List of users is empty!";
         _getch();
-        return;
+        return false;
     }
     std::cout << "List of users:" << std::endl;
     for (auto& user : users) {
         std::cout << "ID: " << user.getId() << ", Name: " << user.getUsername() << ", Age: " << user.getAge()
                   << ", Group: " << user.getGroup() << std::endl;
     }
+
+    return true;
 }
 
 void updateUser(std::vector<User>& users, int id, const std::string& newName, int newAge, int newGroup) {
@@ -76,12 +78,6 @@ void updateUser(std::vector<User>& users, int id, const std::string& newName, in
 }
 
 void deleteUser(std::vector<User>& users, int id) {
-    if(users.empty()){
-        std::cout << "List of users is empty!";
-        _getch();
-        return;
-    }
-
     size_t usersLen = users.size();
 
     for (auto i  = 0; i < usersLen; i++) {
@@ -92,4 +88,7 @@ void deleteUser(std::vector<User>& users, int id) {
             return;
         }
     }
+
+    std::cout << "User not found";
+    _getch();
 }

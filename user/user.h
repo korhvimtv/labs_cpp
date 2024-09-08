@@ -1,8 +1,7 @@
 #ifndef LAB_1_USER_H
 #define LAB_1_USER_H
 
-#include <iostream>
-#include <string>
+#include "../libs.h"
 
 class User {
     int id;
@@ -12,7 +11,7 @@ class User {
     std::vector<int> marks;
 
 public:
-    User(int userId, std::string userUsername, int userAge, int userGroup, std::vector<int> userMarks) : id(userId), username(userUsername), age(userAge), group(userGroup), marks(userMarks) {}
+    User(int userId, const std::string& userUsername, int userAge, int userGroup, const std::vector<int>& userMarks) : id(userId), username(userUsername), age(userAge), group(userGroup), marks(userMarks) {}
     ~User() = default;
 
     int getId() const;
@@ -33,7 +32,7 @@ public:
 };
 
 void createUser(std::vector<User>& users, int id, const std::string& username, int age, int group, const std::vector<int>& marks);
-void readUsers(const std::vector<User>& users);
+bool readUsers(const std::vector<User>& users);
 void updateUser(std::vector<User>& users, int id, const std::string& newName, int newAge, int newGroup);
 void deleteUser(std::vector<User>& users, int id);
 
