@@ -38,17 +38,16 @@ int main() {
                break;
            case 5:
                system("cls");
+               readUsers(users);
                std::cout << "\nEnter users' ID you want update marks for: ";
                isIntNumber(id);
                tempUser = findUser(users, id);
-               if(tempUser!= nullptr) {
+               if (tempUser != nullptr) {
                    enterUserMarks(tempUser);
-               }
-               else{
+               } else {
                    std::cout << "\nUser with such ID doesn't exist";
                    _getch();
                }
-
                break;
            case 6:
                system("cls");

@@ -7,7 +7,6 @@ int isIntNumber(int& check);
 void printMenu();
 void enterUserInfo(std::vector<User>& users);
 void updateUserInfo(std::vector<User>& users, int id);
-void deleteUserInfo(std::vector<User>& users);
 void enterUserMarks(User* user);
 User* findUser(std::vector<User>& users, int id);
 void readAllUserInfo(const std::vector<User>& users);

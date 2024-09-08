@@ -119,7 +119,8 @@ void readAllUserInfo(const std::vector<User>& users){
         if (user.getId() == id) {
             std::vector<int> marks;
             marks = user.getMarks();
-            int sum = 0;
+            double sum = 0;
+            size_t count = marks.size();
             for (int num : marks) {
                 sum += num;
             }
@@ -129,7 +130,7 @@ void readAllUserInfo(const std::vector<User>& users){
             for(const auto& mark: marks) {
                 printf("%d ", mark);
             }
-            std::cout << " Average score: " << sum/marks.size();
+            std::cout << " Average score: " << sum/double(count);
 
         }
     }
