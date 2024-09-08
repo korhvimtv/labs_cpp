@@ -12,7 +12,7 @@ std::string User::getUsername() const {
     return username;
 }
 
-void User::setUsername(const std::string& newUsername) {
+void User::setUsername(std::string_view newUsername) {
     username = newUsername;
 }
 
@@ -37,7 +37,7 @@ std::vector<int> User::getMarks() const {
 }
 
 void User::setMarks(const std::vector<int>& newMarks) {
-    marks = newMarks;
+    this->marks = newMarks;
 }
 
 void createUser(std::vector<User>& users, int id, const std::string& username, int age, int group, const std::vector<int>& marks) {
@@ -82,11 +82,12 @@ void deleteUser(std::vector<User>& users, int id) {
         return;
     }
 
+    size_t usersLen = users.size();
 
-    for (auto it = users.begin(); it != users.end(); ++it) {
-        if (it->getId() == id) {
-            std::cout << "User deleted: " << it->getUsername() << std::endl;
-            users.erase(it);
+    for (auto i  = 0; i < usersLen; i++) {
+        if (users[i].getId() == id) {
+            std::cout << "User deleted: " << users[i].getUsername() << std::endl;
+            users.erase(users.begin() + i);
             _getch();
             return;
         }

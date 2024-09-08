@@ -1,7 +1,3 @@
-//
-// Created by ASUS on 07.09.24.
-//
-
 #ifndef LAB_1_LIBS_H
 #define LAB_1_LIBS_H
 
