@@ -15,7 +15,7 @@ int isIntNumber(int& check){
 
 void printMenu(){
     std::cout << "Menu:" << "\n";
-    std::cout << "1. Create new user\n2. Read all users info\n3. Update user info\n4. Delete user\n5. Enter marks\n6.Enter full user info (ID)\n0. Exit";
+    std::cout << "1. Create new user\n2. Read all users info\n3. Update user info\n4. Delete user\n5. Enter marks\n6. Enter full user info (ID)\n0. Exit";
 }
 
 void enterUserInfo(std::vector<User>& users){
@@ -40,14 +40,6 @@ void updateUserInfo(std::vector<User>& users, int id){
     int age;
     int group;
     std::string username;
-
-    for (const auto& user : users) {
-        if(id != user.getId()){
-            std::cout << "User with ID " << id << " not found." << std::endl;
-            _getch();
-            return;
-        }
-    }
 
     std::cout << "Enter username: ";
     std::cin >> username;

@@ -28,7 +28,6 @@ public:
 
     std::vector<int> getMarks() const;
     void setMarks(const std::vector<int>& newMarks);
-
 };
 
 void createUser(std::vector<User>& users, int id, const std::string& username, int age, int group, const std::vector<int>& marks);

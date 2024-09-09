@@ -5,7 +5,7 @@ int User::getId() const {
 }
 
 void User::setId(int newId) {
-    id = newId;
+    this->id = newId;
 }
 
 std::string User::getUsername() const {
