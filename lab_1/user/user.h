@@ -1,4 +1,4 @@
-#ifndef LAB_1_USER_H
+ #ifndef LAB_1_USER_H
 #define LAB_1_USER_H
 
 #include "../libs.h"
@@ -13,7 +13,7 @@ class User {
 public:
     User(int userId, const std::string& userUsername, int userAge, int userGroup, const std::vector<int>& userMarks) : id(userId), username(userUsername), age(userAge), group(userGroup), marks(userMarks) {}
     ~User() = default;
-
+      
     int getId() const;
     void setId(int newId);
 

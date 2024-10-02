@@ -1,0 +1,24 @@
+# ninja log v5
+3	140	7494044326101862	CMakeFiles/lab_1.dir/main.cpp.obj.ddi	59b21ce9b8b9151a
+10	143	7494044326111755	CMakeFiles/lab_1.dir/user/user.cpp.obj.ddi	a6fbcd37007f9ddd
+16	179	7494044326477218	CMakeFiles/lab_1.dir/func/func.cpp.obj.ddi	b04f04039071d06a
+179	242	7494044327172446	CMakeFiles/lab_1.dir/CXX.dd	745a38ea559d393a
+179	242	7494044327172446	D:/labs_2_semester/lab_1/out/build/x64-Debug/CMakeFiles/lab_1.dir/CXXModules.json	745a38ea559d393a
+179	242	7494044327172446	CMakeFiles/lab_1.dir/main.cpp.obj.modmap	745a38ea559d393a
+179	242	7494044327172446	CMakeFiles/lab_1.dir/user/user.cpp.obj.modmap	745a38ea559d393a
+179	242	7494044327172446	CMakeFiles/lab_1.dir/func/func.cpp.obj.modmap	745a38ea559d393a
+247	910	7494044333817682	CMakeFiles/lab_1.dir/main.cpp.obj	2ebb1298472c9246
+253	914	7494044333857631	CMakeFiles/lab_1.dir/user/user.cpp.obj	5843401928e9db57
+258	915	7494044333877674	CMakeFiles/lab_1.dir/func/func.cpp.obj	a40e8d3e34681bbc
+915	1243	7494044336956694	lab_1.exe	9c2574cec392d536
+13	139	7494047846789443	CMakeFiles/lab_1.dir/func/func.cpp.obj.ddi	b04f04039071d06a
+7	140	7494047846789443	CMakeFiles/lab_1.dir/main.cpp.obj.ddi	59b21ce9b8b9151a
+141	197	7494047846789443	CMakeFiles/lab_1.dir/CXX.dd	745a38ea559d393a
+141	197	7494047846789443	D:/labs_2_semester/lab_1/out/build/x64-Debug/CMakeFiles/lab_1.dir/CXXModules.json	745a38ea559d393a
+141	197	7494047846789443	CMakeFiles/lab_1.dir/main.cpp.obj.modmap	745a38ea559d393a
+141	197	7494047846789443	CMakeFiles/lab_1.dir/user/user.cpp.obj.modmap	745a38ea559d393a
+141	197	7494047846789443	CMakeFiles/lab_1.dir/func/func.cpp.obj.modmap	745a38ea559d393a
+198	985	7494047855258708	CMakeFiles/lab_1.dir/main.cpp.obj	2ebb1298472c9246
+203	1030	7494047855665105	CMakeFiles/lab_1.dir/user/user.cpp.obj	5843401928e9db57
+209	1039	7494047855748028	CMakeFiles/lab_1.dir/func/func.cpp.obj	a40e8d3e34681bbc
+1039	1252	7494047857468305	lab_1.exe	9c2574cec392d536

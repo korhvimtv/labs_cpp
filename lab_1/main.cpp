@@ -39,6 +39,11 @@ int main() {
            case 5:
                system("cls");
                readUsers(users);
+               if (users.empty()) {
+                   std::cout << "List of users is empty!";
+                   _getch();
+                   break;
+               }
                std::cout << "\nEnter users' ID you want update marks for: ";
                isIntNumber(id);
                tempUser = findUser(users, id);
