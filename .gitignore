@@ -9,6 +9,7 @@
 lab_work/.idea/
 lab_work/cmake-build-debug/
 lab_work/sqlite/
+lab_work/build/
 cmake-build-debug/build/
 
 # Файлы проекта Visual Studio
