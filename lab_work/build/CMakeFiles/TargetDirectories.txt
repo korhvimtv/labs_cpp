@@ -1,0 +1,4 @@
+D:/labs_2_semester/lab_work/build/CMakeFiles/sqlite3.dir
+D:/labs_2_semester/lab_work/build/CMakeFiles/lab_work.dir
+D:/labs_2_semester/lab_work/build/CMakeFiles/edit_cache.dir
+D:/labs_2_semester/lab_work/build/CMakeFiles/rebuild_cache.dir
