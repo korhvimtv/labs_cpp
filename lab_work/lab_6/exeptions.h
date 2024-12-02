@@ -13,5 +13,4 @@ public:
     }
 };
 
-
 #endif //LAB_WORK_EXEPTIONS_H

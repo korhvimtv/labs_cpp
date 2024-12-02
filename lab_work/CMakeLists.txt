@@ -25,6 +25,7 @@ add_executable(lab_work main.cpp
         lab_6/exeptions.h
         lab_7/uploadToJSON.cpp
         lab_7/uploadToJSON.h
+        lab_8/container.h
 )
 
 target_link_libraries(lab_work PRIVATE sqlite3)

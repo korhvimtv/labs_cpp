@@ -1,6 +1,6 @@
 #include "../libs.h"
 
-void countUsersInOrganisation(const std::vector<InfoProvider*>& users, const std::string& organisation) {
+void countUsersInOrganisation(const std::span<InfoProvider*>& users, const std::string& organisation) {
     int count = 0;
 
     for (const auto* user : users) {

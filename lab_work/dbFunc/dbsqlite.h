@@ -1,5 +1,5 @@
-#ifndef LAB_2_DBSQLITE_H
-#define LAB_2_DBSQLITE_H
+#ifndef LAB_WORK_DBSQLITE_H
+#define LAB_WORK_DBSQLITE_H
 
 void dbCreate (sqlite3* db);
 void saveToDatabase(const Student* obj ,sqlite3* db);
@@ -10,4 +10,4 @@ void deleteUserById(int userId, sqlite3* db);
 
 std::vector<int> stringToVector(const std::string& marksStr);
 
-#endif //LAB_2_DBSQLITE_H
+#endif //LAB_WORK_DBSQLITE_H

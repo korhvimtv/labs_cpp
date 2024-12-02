@@ -4,7 +4,7 @@
 #include "../libs.h"
 
 template<typename Container, typename Comparator>
-void sortContainer(Container& container, Comparator comp) {
+void sortDescending(Container& container, Comparator comp) {
     bool swapped;
     do {
         swapped = false;

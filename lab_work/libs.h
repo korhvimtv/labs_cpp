@@ -6,6 +6,7 @@
 #include <string>
 #include <conio.h>
 #include <fstream>
+#include <span>
 #include "user/user.h"
 #include "user/infoProvider.h"
 #include "func/func.h"
@@ -17,5 +18,4 @@
 #include <execution>
 #include "sqlite3.h"
 #include "dbFunc/dbsqlite.h"
-
 #endif //LAB_1_LIBS_H

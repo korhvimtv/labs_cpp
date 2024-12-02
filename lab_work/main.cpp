@@ -3,6 +3,7 @@
 int main() {
     std::cin.clear();
     std::vector<Student> users;
+    std::vector<StudentCollection> studCounter;
     std::vector<InfoProvider*> info;
     std::string filename;
     LowAverageList<Student> studList;
@@ -17,7 +18,6 @@ int main() {
         return -1;
     }
 
-    dbCreate(db);
     loadAllUsersFromDatabase(users, db);
 
    while(true) {
@@ -41,7 +41,7 @@ int main() {
                if (readUsers(users)) {
                std::cout << "\nEnter users' ID you want update for: ";
                isIntNumber(id);
-               updateUserInfo(users, id, db, info);
+               updateUserInfo(users, id, db);
                }
                break;
            case 4:
@@ -81,13 +81,17 @@ int main() {
                break;
            case 8:
                system("cls");
+               enterOrganisation(users, db);
+               break;
            case 9:
                system("cls");
                std::cout << "Enter organisation name: ";
                std::cin >> orgHelp;
                countUsersInOrganisation(info, orgHelp);
+               _getch();
+               break;
            case 10:
-               sortContainer(users, [](const Student& a, const Student& b) {
+               sortDescending(users, [](const Student& a, const Student& b) {
                    return a.getAverage() > b.getAverage();
                });
 
@@ -110,6 +114,16 @@ int main() {
                saveStudentsToJson(users, filename);
                std::cout << "Success!";
                _getch();
+               break;
+           case 13:
+               system("cls");
+               allStudents (users, studCounter);
+               _getch();
+               break;
+           case 14:
+               system("cls");
+               readUsers(users);
+               enterPersonInfo(users, db);
                break;
            case 0:
                sqlite3_close(db);

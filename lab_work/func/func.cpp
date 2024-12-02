@@ -17,7 +17,8 @@ void printMenu(){
     std::cout << "Menu:" << "\n";
     std::cout << "1. Create new user\n2. Read all users info\n3. Update user info\n4. Delete user\n5. Enter marks\n"
                  "6. Display full user info (ID)\n7. Search the best student\n8. Edit organisations info\n"
-                 "9. Find organisations' members\n10. Sort\n11. Open low average list\n12. Upload to .json file\n0. Exit";
+                 "9. Find organisations' members\n10. Sort\n11. Open low average list\n12. Upload to .json file\n"
+                 "13. Number of students\n14. Enter user real info\n0. Exit";
 }
 
 void enterUserInfo(std::vector<Student>& users, sqlite3* db, std::vector<InfoProvider*>& info) {
@@ -26,6 +27,10 @@ void enterUserInfo(std::vector<Student>& users, sqlite3* db, std::vector<InfoPro
     int group;
     std::string username;
     std::string org;
+    std::string name;
+    std::string address;
+    std::string phone;
+
     std::vector<int> marks;
     std::cin.clear();
     std::cout << "Enter username: ";
@@ -36,10 +41,10 @@ void enterUserInfo(std::vector<Student>& users, sqlite3* db, std::vector<InfoPro
     isIntNumber(age);
     std::cout << "Enter group: ";
     std::cin >> group;
-    createUser(users, id, username, org, age, group, db, info);
+    createUser(users, id, username, org, age, group, name, address, phone, db);
 }
 
-void updateUserInfo(std::vector<Student>& users, int id, sqlite3* db, std::vector<InfoProvider*> info) {
+void updateUserInfo(std::vector<Student>& users, int id, sqlite3* db) {
     int age;
     int group;
     std::string username;
@@ -50,7 +55,7 @@ void updateUserInfo(std::vector<Student>& users, int id, sqlite3* db, std::vecto
     std::cin >> age;
     std::cout << "Enter group: ";
     std::cin >> group;
-    updateUser(users, id, username, age, group, db, info);
+    updateUser(users, id, username, age, group, db);
 }
 
 Student* findUser(std::vector<Student>& users, int id){
@@ -124,4 +129,68 @@ void readAllUserInfo(const std::vector<Student>& users){
         }
     }
     _getch();
+}
+
+void enterOrganisation(std::vector<Student>& users, sqlite3* db) {
+    int id;
+    int choice;
+    std::cout << "Enter users' ID you want to update: ";
+    std::cin >> id;
+
+    std::cout << "Choose an organisation:\n1.BRSM\n2.PROFKOM\n3.SC\n > ";
+    std::cin >> choice;
+    if (choice == 1) {
+        updateUserOrganisation(users, id, "BRSM", db);
+    } else if (choice == 2) {
+        updateUserOrganisation(users, id, "PROFKOM", db);
+    } else {
+        updateUserOrganisation(users, id, "SC", db);
+    }
+}
+
+StudentCollection createStudentCollection(const std::vector<Student>& users) {
+    return StudentCollection(users);
+}
+
+void allStudents(const std::vector<Student>& users, std::vector<StudentCollection>& stud) {
+    if (stud.empty()) {
+        std::cout << "Creating new collections" << std::endl;
+
+        stud.emplace_back(createStudentCollection(users));
+    }
+
+    for (const auto& collection : stud) {
+        collection.displayAllStudents();
+        std::cout << "Number of students in this collection: " << collection.countStudents() << std::endl;
+    }
+
+    stud.clear();
+}
+
+void enterPersonInfo (std::vector<Student>& users, sqlite3* db) {
+    std::string helpName;
+    std::string helpPhone;
+    std::string helpAddress;
+    int helpId;
+
+    std::cout << "Enter ID you want to update: ";
+    std::cin >> helpId;
+
+    std::cout << "Enter name: ";
+    std::cin >> helpName;
+    std::cout << "Enter phone: ";
+    std::cin >> helpPhone;
+    std::cout << "Enter address: ";
+    std::cin >> helpAddress;
+
+    for (auto& user : users) {
+        if (user.getId() == helpId) {
+            user.setName(helpName);
+            user.setAddress(helpAddress);
+            user.setPhone(helpPhone);
+            updateUserInDatabase(&user, db);
+            return;
+        }
+    }
+
 }

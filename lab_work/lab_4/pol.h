@@ -3,6 +3,6 @@
 
 #include "../libs.h"
 
-void countUsersInOrganisation(const std::vector<InfoProvider*>& users, const std::string& organisation);
+void countUsersInOrganisation(const std::span<InfoProvider*>& users, const std::string& organisation);
 
 #endif //LAB_WORK_POL_H

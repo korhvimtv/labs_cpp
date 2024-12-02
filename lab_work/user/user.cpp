@@ -1,12 +1,12 @@
 #include "../libs.h"
 
 void createUser(std::vector<Student>& users, int id, const std::string& username, const std::string& org,
-                int age, int group, sqlite3* db, std::vector<InfoProvider*>& info) {
+                int age, int group, const std::string& name, const std::string& address, const std::string& phone, sqlite3* db) {
     std::vector<int> marks;
-    auto* newUser = new Student(id, username, age, org, group, marks);
+    auto newUser = std::make_unique<Student>(id, username, age,group,
+                                             marks, org, name, address, phone);
     users.push_back(*newUser);
-    saveToDatabase(newUser, db);
-    info.push_back(newUser);
+    saveToDatabase(newUser.get(), db);
     std::cout << "\nUser created" << std::endl;
 }
 
@@ -27,7 +27,7 @@ bool readUsers(const std::vector<Student>& users) {
 }
 
 void updateUser(std::vector<Student>& users, int id, const std::string& newName, int newAge,
-                int newGroup, sqlite3* db, std::vector<InfoProvider*> info) {
+                int newGroup, sqlite3* db) {
     for (auto& user : users) {
         if (user.getId() == id) {
             user.setUsername(newName);
@@ -73,5 +73,19 @@ User* findBestUser(std::vector<Student>& users) {
     return bestUser;
 }
 
-
+void updateUserOrganisation(std::vector<Student>& users, int id, const std::string& newOrg, sqlite3* db) {
+    for (auto& user : users) {
+        if (user.getId() == id) {
+            std::cout << user.getName() << "\n\n";
+            _getch();
+            user.setOrg(newOrg);
+            std::cout << user.getName() << "\n\n";
+            _getch();
+            std::cout << "User organisation updated: " << user.getId() << std::endl;
+            updateUserInDatabase(&user, db);
+            _getch();
+            return;
+        }
+    }
+}
 

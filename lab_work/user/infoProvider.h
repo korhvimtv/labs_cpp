@@ -1,5 +1,5 @@
-#ifndef LAB_3_INFOPROVIDER_H
-#define LAB_3_INFOPROVIDER_H
+#ifndef LAB_WORK_INFOPROVIDER_H
+#define LAB_WORK_INFOPROVIDER_H
 
 #include "infoProvider.h"
 
@@ -10,4 +10,4 @@ public:
     [[nodiscard]] virtual std::string getInfo() const = 0;
 };
 
-#endif //LAB_3_INFOPROVIDER_H
+#endif //LAB_WORK_INFOPROVIDER_H
